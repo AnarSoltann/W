@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PostService } from '../../service/post.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-all',
@@ -6,5 +8,29 @@ import { Component } from '@angular/core';
   styleUrl: './view-all.component.scss'
 })
 export class ViewAllComponent {
+
+  allPosts: any ;
+
+  constructor(private postService: PostService,
+    private snackBar: MatSnackBar) { }
+
+    ngOnInit() {
+      this.getAllPosts();
+    }
+
+
+    getAllPosts() {
+
+      this.postService.getAllPosts().subscribe(res => {
+        console.log(res);
+        this.allPosts = res;
+      }, error => {
+        this.snackBar.open("Something Went Wrong!  Check ANS DEV OTHER PROJECTS HERE..", "Close")
+      })
+    }
+
+
+
+
 
 }

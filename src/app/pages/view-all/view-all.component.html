@@ -1,1 +1,43 @@
-<p>view-all works!</p>
+<div class="card-container" *ngFor="let item of allPosts">
+    <mat-card class="card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              </div>
+            <mat-card-title>{{ item.category.name }}</mat-card-title>
+            <mat-card-subtitle>
+              Posted by: {{ item.userResponseDto.username }} | Posted on: {{ item.creationDate | date:'mediumDate' }}
+            </mat-card-subtitle>
+          </mat-card-header>
+        <mat-grid-list cols="5">    
+
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <img mat-card-image [src]="item.img" class="post-img" alt="Card image"/>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                <mat-card-content>
+                    {{item?.postBody?.length > 600 ? item.postBody.substr(0,600) + '...' : item?.postBody}}
+                 </mat-card-content>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary">{{item.likes}} <mat-icon>favorite</mat-icon></button>
+
+            <button mat-raised-button color="warn">{{item.dislikes}} <mat-icon>thumb_down</mat-icon>
+              </button>
+
+
+            <button mat-raised-button color="primary"  style="margin-left: 5px;">{{item.views}} 
+                <mat-icon>remove_red_eye</mat-icon></button>
+
+            
+            <button mat-raised-button color="primary" style="margin-left: 5px;" routerLink="/view-post/{{item.id}}">View Post</button>
+           
+        </mat-card-actions>
+
+
+
+
+    </mat-card>
+
+</div>

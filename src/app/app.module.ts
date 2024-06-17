@@ -9,13 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './AngularMaterialModule';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ViewPostComponent } from './pages/view-post/view-post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
-    ViewAllComponent
+    ViewAllComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { ViewAllComponent } from './pages/view-all/view-all.component';
     ReactiveFormsModule,
     AngularMaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [
   ],

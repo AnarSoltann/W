@@ -22,6 +22,11 @@ export class PostService {
   }
 
 
+  getPostById(postId: number):Observable<any>{
+    return this.http.get(BasicURL + 'api/posts${postId}');
+  }
+
+
 
 
 
