@@ -1,0 +1,28 @@
+<mat-card  class="center-card">
+    <mat-card-content>
+        <div>
+            <form [formGroup]="postForm">
+                 <mat-form-field appearance="fill">
+                    <mat-label>Img</mat-label>
+                    <input matInput formControlName="img">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                    <input matInput formControlName="category">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                     <mat-label>Your Post</mat-label>
+                    <textarea matInput rows="5" formControlName="post"></textarea>
+                </mat-form-field>
+            
+                <button mat-raised-button color="primary" style="float:right;" 
+                 [disabled]="!postForm.valid" (click)="createPost()">Add your Post</button>
+            </form>
+        </div>
+  </mat-card-content>
+
+</mat-card>
+
+
+
