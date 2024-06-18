@@ -34,5 +34,23 @@ postData:any;
     })
   }
 
+  likePost(){
+    this.postService.likePost(this.postId).subscribe((res)=>{
+      this.matSnackBar.open("Post Liked succesfully", "Close");
+      this.getPostById();
+    }, (error)=>{
+      this.matSnackBar.open("Something Went Wrong", "Close");
+    })
+  }
+
+  dislikePost(){
+    this.postService.dislikePost(this.postId).subscribe((res)=>{
+      this.matSnackBar.open("Post Disliked succesfully", "Close");
+      this.getPostById();
+    }, (error)=>{
+      this.matSnackBar.open("Something Went Wrong", "Close");
+    })
+  }
+
 
 }

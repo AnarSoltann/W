@@ -13,20 +13,24 @@ export class PostService {
 
   createNewPost(data: any):Observable<any>{
     return this.http.post(BasicURL + 'api/posts', data);
-  }
+}
 
-
-  
   getAllPosts():Observable<any>{
     return this.http.get(BasicURL + 'api/posts');
-  }
+}
 
 
   getPostById(postId:number):Observable<any>{
     return this.http.get(`${BasicURL}api/posts/${postId}`);
 }
 
+  likePost(postId:number):Observable<any>{
+  return this.http.put(`${BasicURL}api/posts/${postId}/like`, {});
+}
 
+dislikePost(postId:number):Observable<any>{
+  return this.http.put(`${BasicURL}api/posts/${postId}/dislike`, {});
+}
 
 
 

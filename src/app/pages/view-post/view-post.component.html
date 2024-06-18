@@ -19,10 +19,10 @@
 
 
     <mat-card-actions>
-      <button mat-raised-button color="primary">{{postData.likes}}
+      <button mat-raised-button color="primary" (click)="likePost()">{{postData.likes}}
         <mat-icon>thumb_up</mat-icon></button>
 
-        <button mat-raised-button color="warn">{{postData.dislikes}}
+        <button mat-raised-button color="warn" (click)="dislikePost()">{{postData.dislikes}}
           <mat-icon>thumb_down</mat-icon></button>
 
             <button mat-raised-button color="primary" style="margin-left: 5px;">{{postData.views}}
